@@ -1,4 +1,3 @@
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
 import java.awt.event.*;
 import java.io.File;
 import java.io.IOException;
@@ -129,7 +128,16 @@ public class LifeModel implements ActionListener
      */
     public void oneGeneration()
     {
-    	
+    	for (int r=0;r<myGrid.length;r++){
+            for (int c=0;c<myGrid[r].length;c++){
+                if (numLiveNeighbors(r,c)==3||(numLiveNeighbors(r,c)==2&&myGrid[r][c].isAliveNow())){
+                    myGrid[r][c].setAliveNext(true);
+                }
+                else
+                    myGrid[r][c].setAliveNext(false);
+            }
+        }
+        updateNextGen();
     } 
     
     /**
@@ -139,7 +147,15 @@ public class LifeModel implements ActionListener
      * use for each loops
      */
     private void updateNextGen() {
-
+        for (LifeCell[] r:myGrid){
+            for (LifeCell c:r){
+                if (c.isAliveNext()){
+                    c.setAliveNow(true);
+                }
+                else
+                    c.setAliveNow(false);
+            }
+        }
     }
      
     /**
@@ -154,7 +170,18 @@ public class LifeModel implements ActionListener
      */
     private int numLiveNeighbors (int row, int col)
     {
-       return 0;
+        int c=0;
+        for (int i=-1;i<=1;i++){
+            for (int j=-1;j<=1;j++){
+                if (i==0&&j==0){
+                    continue;
+                }
+                else if (inBounds(row+i,col+j)&&myGrid[row+i][col+j].isAliveNow()){
+                    c++;
+                }
+            }
+        }
+        return c;
     }
     
     /**
@@ -167,7 +194,10 @@ public class LifeModel implements ActionListener
      */
     private boolean inBounds(int row, int col)
     {
-        return false;
+        if ((row>=0&&row<myGrid.length)&&(col>=0&&col<myGrid[row].length))
+            return true;
+        else
+            return false;
     }
 }
 
