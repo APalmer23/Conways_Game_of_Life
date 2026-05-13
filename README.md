@@ -3,15 +3,15 @@
 
 ### Conway's Game of Life
 
-This is not really a game.  It is an implementation of a cellular automata that John H. Conway chose to call the “Game of Life.” The computer simulation is of the life and death events of a population of bacterial organisms.  This program will determine the life, death, and survival of bacteria from one generation to the next, assuming the starting grid of bacteria is considered generation zero.  Sometimes the outcome is that all organisms die.  Other times they end up in a static or oscillating world.  Other times, they form organisms that generate new life forms that glide across the screen. 
+This is not really a game.  It is an implementation of a cellular automata that John H. Conway chose to call the “Game of Life.” The computer simulation is of the life and death events of a population of bacterial organisms.  This program determines the life, death, and survival of bacteria from one generation to the next, assuming the starting grid of bacteria is considered generation zero.  Sometimes the outcome is that all organisms die.  Other times they end up in a static or oscillating world.  Other times, they form organisms that generate new life forms that glide across the screen. 
 
 ### Game Specifications
 
-The sizeof the grid is set to a square 60 x 60.  Different sized grids produce different results.
+The size of the grid is set to a square 60 x 60.  Different sized grids produce different results.
 
 ### Model-View-Controller Framework
 
-This application uses the Model-View-Controller(MVC) design framework. You don't have to worry too much about it, since the `LifeView.java` and `LifeController.java` classes are already written for you. If you want some more information on MVC, here are some links to check out.
+This application uses the Model-View-Controller(MVC) design framework. If you want some more information on MVC, here are some links to check out.
 - https://www.geeksforgeeks.org/mvc-framework-introduction/#
 - https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller
 
